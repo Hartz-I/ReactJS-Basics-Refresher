@@ -12,7 +12,6 @@ class App extends Component {
       { name: "Manu", age: 29 },
       { name: "Stephnie", age: 26 },
     ],
-    showPersons: false,
   };
 
   //a method of tha class can be called on an event. hence event handler for events such as onClick onCopy etc
@@ -42,13 +41,6 @@ class App extends Component {
     });
   };
 
-  togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({
-      showPersons: !doesShow,
-    });
-  };
-
   render() {
     //renders html
 
@@ -66,36 +58,34 @@ class App extends Component {
         <p>This is really working!!</p>
         <button
           style={style} //other way of doing style. variable above
-          onClick={this.togglePersonsHandler /** an alternative to bind */}
+          onClick={
+            () =>
+              this.switchNameHandler(
+                "Maximilian!!"
+              ) /** an alternative to bind */
+          }
         >
-          Toggle Persons
+          Switch Name
         </button>
-
-        {
-          this.state.showPersons == true ? ( //this means if that is true then
-            <div>
-              <Person
-                name={this.state.persons[0].name}
-                age={this.state.persons[0].age}
-              />
-              <Person
-                name={this.state.persons[1].name}
-                age={this.state.persons[1].age}
-                click={
-                  this.switchNameHandler.bind(this, "Max!!")
-                  /**so we can pass methods to dumb components. Use bind instead of function call */
-                }
-                changed={this.nameChangedHandler}
-              >
-                My Hobbies: Racing
-              </Person>
-              <Person
-                name={this.state.persons[2].name}
-                age={this.state.persons[2].age}
-              />
-            </div>
-          ) : null //after colon we state what to do else!
-        }
+        <Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age}
+        />
+        <Person
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+          click={
+            this.switchNameHandler.bind(this, "Max!!")
+            /**so we can pass methods to dumb components. Use bind instead of function call */
+          }
+          changed={this.nameChangedHandler}
+        >
+          My Hobbies: Racing
+        </Person>
+        <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}
+        />
       </div> //everything must be in one div
     );
 
