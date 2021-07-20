@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Person from "./Person/Person"; //name starts with uppercase
 import UserOutput from "./UserOutput/UserOutput";
 import UserInput from "./UserInput/UserInput";
 
@@ -64,7 +63,7 @@ class App extends Component {
       <div className="App">
         <UserInput
           changed={this.userWorkHandler}
-          name={this.state.people[1].work}
+          name={this.state.people[0].work}
         />
         <UserOutput
           name={this.state.people[0].name}

@@ -4,11 +4,12 @@ import "./UserOutput.css";
 const UserOutput = (props) => {
   const style = {
     color: "white",
-    backgroundColor: "black",
+    backgroundColor: "#bf1948",
     border: "1px solid gray",
     padding: "5px",
-    transform: "skew(-5deg) scale(1.02)",
+    transform: "skew(-5deg)",
   };
+
   return (
     <div className="UserOutput">
       <p>This is {props.name}</p>
