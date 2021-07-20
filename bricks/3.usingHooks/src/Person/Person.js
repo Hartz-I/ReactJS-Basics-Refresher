@@ -1,6 +1,8 @@
 //name starts with capital of components
 //function name lower case
 
+//stateless components. use as much of these you can
+
 import React from 'react';
 
 //in class based components we use this.props
