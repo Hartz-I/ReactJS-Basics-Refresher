@@ -65,9 +65,25 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = ( //putting the content in the variable if conditon is met and then just showing the variable
         <div>
-          {this.state.persons.map((person) => {
-            return <Person name={person.name} age={person.age} />;
-          })}
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+          />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            click={
+              this.switchNameHandler.bind(this, "Max!!")
+              /**so we can pass methods to dumb components. Use bind instead of function call */
+            }
+            changed={this.nameChangedHandler}
+          >
+            My Hobbies: Racing
+          </Person>
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}
+          />
         </div>
       );
     }
