@@ -1,0 +1,20 @@
+.input-section {
+  height: 150px;
+  width: 60%;
+  margin: 16px auto;
+  padding: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px rgb(194, 186, 186);
+}
+
+.input {
+  width: 80%;
+  height: 50px;
+  border: 2px solid rgb(160, 29, 160);
+  border-radius: 5px;
+  font-size: 32px;
+}
+
+.textLen {
+  font-size: 32px;
+}

@@ -1,13 +1,14 @@
 import React from "react";
+import "./ValidationComponent.css";
 
 const ValidtionComponent = (props) => {
   let textLen = props.textLen;
 
-  const tooShort = <p>The text is too short</p>;
+  const tooShort = <p className="val-short">The text is too short!</p>;
 
-  const tooLong = <p>The text is too long</p>;
+  const tooLong = <p className="val-long">The text is too long@</p>;
 
-  const longEnough = <p>The text is long enough!</p>;
+  const longEnough = <p className="val-enough">The text is long enough!</p>;
 
   let text = null;
 
