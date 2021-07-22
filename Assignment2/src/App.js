@@ -6,6 +6,7 @@ import ValidationComponent from "./ValidationComponent/ValidationComponent";
 
 class App extends Component {
   state = {
+    text: "",
     textLen: "0",
     letters: [],
   };
@@ -21,9 +22,9 @@ class App extends Component {
     while (i < textLen) {
       letters.push(text[i]);
       i = i + 1;
-    }
+    } //or simply use the split method!!!! yeah... all this work for nothing!
 
-    this.setState({ textLen: textLen, letters: letters });
+    this.setState({ text: text, textLen: textLen, letters: letters });
   };
 
   deleteCharHandler = (index) => {
@@ -31,7 +32,9 @@ class App extends Component {
 
     letters.splice(index, 1);
 
-    this.setState({ letters: letters });
+    const text = letters.join("");
+
+    this.setState({ text: text, letters: letters });
   };
 
   render() {
@@ -40,6 +43,7 @@ class App extends Component {
         <UserInput
           changed={this.onChangeHandler}
           textLen={this.state.textLen}
+          value={this.state.text}
         />
         <ValidationComponent textLen={this.state.textLen} />
 
@@ -58,3 +62,5 @@ class App extends Component {
 }
 
 export default App;
+
+//what have I learned? two way binding is important!
