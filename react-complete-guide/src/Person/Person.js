@@ -1,18 +1,25 @@
+//name starts with capital of components
+//function name lower case
+
+//this is an stateless, dumb component. use as many of these you can
+
 import React from "react";
 import "./Person.css";
 
-//for style
-import Radium from "radium";
-
-const style = {
-  "@media(min-width: 500px)": {
-    width: "450px",
-  }, //but to use media we need to wrap app.js with StyleRoot
-};
+//in class based components we use this.props
 
 const person = (props) => {
+  //adding errors boundary
+  const rnd = Math.random();
+
+  console.log(rnd);
+
+  if (rnd > 0.7) {
+    throw new Error("something went wrong!");
+  }
+
   return (
-    <div className="Person" style={style}>
+    <div className="Person">
       <p onClick={props.click}>
         I'm {props.name} and I am {props.age} years old
       </p>
@@ -21,5 +28,6 @@ const person = (props) => {
     </div>
   );
 };
-
-export default Radium(person);
+//with curly bracket we can do simple function within
+//props.children for inbetween writtings
+export default person;
